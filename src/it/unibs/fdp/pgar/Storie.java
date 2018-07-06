@@ -65,8 +65,10 @@ public class Storie{
 						 break;
 					}
 					else
-						listaStorie.get(voceSelezionata).eseguiStoria();
+						listaStorie.get(voceSelezionata-1).eseguiStoria();
+						break;
 				case 0:
+					fine=true;
 					break;
 			}
 		}while(!fine);
@@ -88,6 +90,9 @@ public class Storie{
 				
 				
 				
+	}
+	public String toString() {
+		return STORIE_TITOLO;
 	}
 	public void creazioneStoria() {
 		
@@ -120,6 +125,7 @@ public class Storie{
 					System.out.println("Operazione non riconosciuta.");
 				 break;
 				case 0:
+					fine=true;
 					break;
 			}
 

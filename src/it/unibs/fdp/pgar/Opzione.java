@@ -17,6 +17,7 @@ public class Opzione {
 	public Opzione(String nome)
 	{
 		this.nome=nome;
+		collegamento=new Paragrafo();
 	}
 	
 	public String getNome() {
@@ -30,6 +31,9 @@ public class Opzione {
 	}
 	public void setCollegamento(Paragrafo collegamento) {
 		this.collegamento = collegamento;
+	}
+	public String toString() {
+		return nome;
 	}
 	
 

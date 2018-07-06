@@ -67,6 +67,9 @@ public class Storia implements Comparable<Storia> {
 	public void aggiungiParagrafo(int id,String tipo) {
 		listaParagrafi.add(new Paragrafo(id, tipo));
 	}
+	public String toString() {
+		return titolo;
+	}
 
 	@Override
 	public int compareTo(Storia arg0) {

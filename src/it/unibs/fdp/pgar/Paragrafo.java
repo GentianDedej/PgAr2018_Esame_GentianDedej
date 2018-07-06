@@ -31,8 +31,15 @@ public class Paragrafo {
 	{
 		this.ID=id;
 		this.tipo=tipo;
+		listaOpzioni=new ArrayList<Opzione>();
 	}
 	
+	public Paragrafo() {
+		// TODO Auto-generated constructor stub
+		this.tipo="basic";
+		listaOpzioni=new ArrayList<Opzione>();
+	}
+
 	public int getID() {
 		return ID;
 	}
@@ -59,7 +66,7 @@ public class Paragrafo {
 	}
 	public Paragrafo scegliOpzione() {
 		
-		MenuVisualizza menu =new MenuVisualizza(descrizione, listaOpzioni,2);
+		MenuVisualizza menu =new MenuVisualizza(descrizione, listaOpzioni,0);
 		boolean fine = false;//serve per uscire dal menu
 		
 		do 
@@ -76,6 +83,7 @@ public class Paragrafo {
 					else
 						return listaOpzioni.get(voceSelezionata).collegamento;
 				case 0:
+					fine=true;
 					break;
 			
 			}//switch
@@ -84,6 +92,9 @@ public class Paragrafo {
 		return null;
 		
 		
+	}
+	public String toString() {
+		return descrizione;
 	}
 
 	public void aggiungiOpzione() {

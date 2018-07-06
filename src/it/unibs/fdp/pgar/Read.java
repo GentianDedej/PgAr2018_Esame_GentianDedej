@@ -51,10 +51,7 @@ public class Read {
 				/**
 				 * lettura degli attributi del story
 				 */
-				if(first==true) {
-					numSto++;
-					
-				}
+				
 				String titolo=xmlr.getAttributeValue(0);
 				int numeroParagrafi=Integer.parseInt(xmlr.getAttributeValue(1));
 				
@@ -65,7 +62,7 @@ public class Read {
 					/**
 					 * lettura degli attributi di paragraph
 					 */
-					if(first==true) {
+					if(first==false) {
 						numPar++;
 						
 					}
@@ -80,22 +77,22 @@ public class Read {
 					/**
 					 * lettura del testo della descrizione
 					 */
-					listaStorie.listaStorie.get(numSto).listaParagrafi.get(numPar).descrizione=xmlr.getText();
+					listaStorie.listaStorie.get(numSto).listaParagrafi.get(numPar).descrizione=xmlr.getElementText();
 					
 					break;
 				case ("option"):
 					/**
 					 * lettura opzioni
 					 */
-	
-					listaStorie.listaStorie.get(numSto).listaParagrafi.get(numPar).listaOpzioni.add(new Opzione(xmlr.getText()));
-				try {
-					String s=xmlr.getAttributeValue(0);
-					int intero = Integer.parseInt(s);
-					listaStorie.listaStorie.get(numSto).listaParagrafi.get(numPar).listaOpzioni.get(numOpz).collegamento.ID=intero;
-					numOpz++;
+					String s=xmlr.getElementText().trim();
+					//System.out.println(xmlr.getAttributeValue(0));
+					//int o=Integer.parseInt(xmlr.getAttributeValue(0));
 					
-					} catch (Exception e) { e.printStackTrace(); }
+					
+					listaStorie.listaStorie.get(numSto).listaParagrafi.get(numPar).listaOpzioni.add(new Opzione(s));
+					
+					numOpz++;
+					break;
 
 					
 	
