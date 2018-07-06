@@ -9,7 +9,11 @@ public class Opzione {
 	
 	String nome;
 	Paragrafo collegamento;
-	
+	int id_collegamento;
+	public Opzione(String nome,int id_collegamento) {
+		this.nome=nome;
+		this.id_collegamento=id_collegamento;
+	}
 	public Opzione(String nome)
 	{
 		this.nome=nome;

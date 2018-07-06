@@ -2,13 +2,24 @@ package it.unibs.fdp.pgar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+
+import it.unibs.fp.mylib.InputDati;
+import it.unibs.fp.mylib.MyMenu;
 
 
-public class Storie {
+public class Storie{
 	
 	public final static String STORIE_TITOLO="STORIE A BIVI";
 	
 	ArrayList<Storia> listaStorie;
+	public static final String MSG_TITOLO_STO="INSERISCI IL TITOLO DELLA STORIA";
+	public static final String MSG_TIPO_PAR="INSERISCI IL TIPO DI PARAGAFO:\t scriver basic se si vuole quello di default ";
+	public static final String MSG_AGG_PAR="VUOI AGGIUNGERE ALTRI PARAGRAFI? DIGITA Y/N";
+	String []voci=
+		{
+			"AGGIUNGI STORIA"
+		};
 	
 	public Storie() {
 		listaStorie=new ArrayList<Storia>();
@@ -23,16 +34,11 @@ public class Storie {
 		return (ArrayList<Storia>)sorted;
 		
 	}
-	/*
-	public ArrayList<Storia> ordinaNum() {
-		ArrayList<Storia> sorted = (ArrayList<Storia>) Arrays.asList(
-                listaStorie.stream().sorted(
-                    (s1, s2) -> s1.listaParagrafi.size().
-                ).toArray(Storia[]::new)
-            );
-		return (ArrayList<Storia>)sorted;
+	
+	public void ordinaNum() {
+		Collections.sort(listaStorie);
 				
-	}*/
+	}
 	public ArrayList<Storia> getListaStorie() {
 		return listaStorie;
 	}
@@ -83,5 +89,40 @@ public class Storie {
 				
 				
 	}
+	public void creazioneStoria() {
+		
+		MyMenu menu= new MyMenu(STORIE_TITOLO, voci);
+		boolean fine = false;//serve per uscire dal menu
+		int i=0;//i corisponde al numero di paragrafi per storia creati
+		boolean fine_par=false;
+		
+		do 
+		{
+			int voceSelezionata = menu.scegli();//vedi classe inputDati(serve a impostare la selezione del menu)
+			
+			switch ( voceSelezionata ) 
+			{
+				case 1:
+					String titolo=InputDati.leggiStringa(MSG_TITOLO_STO);
+					listaStorie.add(new Storia(titolo));
+					int j=0;
+					do {
+					ricercaStoria(titolo).aggiungiParagrafo(i,InputDati.leggiStringa(MSG_TIPO_PAR));
+					j++;
+					ricercaStoria(titolo).listaParagrafi.get(j).aggiungiOpzione();
+					char c=InputDati.leggiChar(MSG_AGG_PAR);
+					if(c=='n'||c=='N') {
+						fine_par=true;
+					}
+					}while(!fine_par);
 
+				default:
+					System.out.println("Operazione non riconosciuta.");
+				 break;
+				case 0:
+					break;
+			}
+
+		}while(!fine);
+	}
 }

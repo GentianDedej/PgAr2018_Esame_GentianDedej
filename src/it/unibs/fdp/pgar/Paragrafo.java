@@ -2,6 +2,9 @@ package it.unibs.fdp.pgar;
 
 import java.util.ArrayList;
 
+import it.unibs.fp.mylib.InputDati;
+import it.unibs.fp.mylib.MyMenu;
+
 
 /**
  * Questa classe rappresenta un paragrafo della storia a bivi
@@ -16,6 +19,13 @@ public class Paragrafo {
 	ArrayList<Opzione> listaOpzioni;
 	int numeroOpzioni;
 	String tipo;
+	public final static String TITOLO="PARAGRAFO";
+	public final static String MSG_TESTO_OPZIONE="INSERISCI IL TESTO DEL OPZIONE";
+	public final static String MSG_TESTO_ID="INSERISCI IL ID DEL PARAGAFO COLLEGATO";
+	String []voci= 
+	{
+		"AGGIUNGI OPZIONE"	
+	};
 	
 	public Paragrafo(int id,String tipo)
 	{
@@ -73,6 +83,31 @@ public class Paragrafo {
 		} while ( !fine );
 		return null;
 		
+		
+	}
+
+	public void aggiungiOpzione() {
+		MyMenu menu =new MyMenu(TITOLO, voci);
+		boolean fine = false;//serve per uscire dal menu
+		
+		do 
+		{
+			int voceSelezionata = menu.scegli();//vedi classe inputDati(serve a impostare la selezione del menu)
+		
+			switch ( voceSelezionata ) 
+			{
+			case 1:
+				listaOpzioni.add(new Opzione(InputDati.leggiStringa(MSG_TESTO_OPZIONE),InputDati.leggiIntero(MSG_TESTO_ID)));
+				break;
+			case 0:
+				break;
+			default:
+				System.out.println("Operazione non riconosciuta.");
+			 break;
+			
+			}
+
+		} while ( !fine );
 		
 	}
 

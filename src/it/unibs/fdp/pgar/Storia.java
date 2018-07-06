@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author Gentian
  *
  */
-public class Storia {
+public class Storia implements Comparable<Storia> {
 	
 	String titolo;
 	int numeroParagrafi;
@@ -17,6 +17,11 @@ public class Storia {
 	{
 		this.titolo=titolo;
 		this.numeroParagrafi=numeroParagrafi;
+		listaParagrafi=new ArrayList<Paragrafo>();
+	}
+	public Storia(String titolo)
+	{
+		this.titolo=titolo;
 		listaParagrafi=new ArrayList<Paragrafo>();
 	}
 	
@@ -58,6 +63,15 @@ public class Storia {
 				p=p.scegliOpzione();
 		}while(!fine);
 		
+	}
+	public void aggiungiParagrafo(int id,String tipo) {
+		listaParagrafi.add(new Paragrafo(id, tipo));
+	}
+
+	@Override
+	public int compareTo(Storia arg0) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

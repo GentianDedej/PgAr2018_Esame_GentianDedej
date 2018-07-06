@@ -25,8 +25,7 @@ public class Read {
 			{
 				
 				XMLInputFactory xmlif=XMLInputFactory.newInstance();
-		        XMLStreamReader xmlr = xmlif.createXMLStreamReader(filename,
-		                                   new FileInputStream(filename));
+		        XMLStreamReader xmlr = xmlif.createXMLStreamReader(filename,new FileInputStream(filename));
 		        
 		        while(xmlr.hasNext()) 
 		        {
