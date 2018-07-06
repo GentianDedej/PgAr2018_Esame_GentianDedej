@@ -50,6 +50,11 @@ public class Storia implements Comparable<Storia> {
 		}
 		return null;
 	}
+	/**
+	 * metodo che esegue la storia;
+	 * primo indica il primo elemento della storia
+	 * p indica il paragrafo senza opzioni cioè l'ultimo della storia;
+	 */
 	public void eseguiStoria() {
 		System.out.println(titolo);
 		Paragrafo primo;
@@ -63,6 +68,13 @@ public class Storia implements Comparable<Storia> {
 				p=p.scegliOpzione();
 		}while(!fine);
 		
+	}
+	public Paragrafo trovaParagrafo(int id) {
+		for (int i = 0; i < listaParagrafi.size(); i++) {
+			if(id==listaParagrafi.get(i).ID)
+				return listaParagrafi.get(i);
+		}
+		return null;
 	}
 	public void aggiungiParagrafo(int id,String tipo) {
 		listaParagrafi.add(new Paragrafo(id, tipo));

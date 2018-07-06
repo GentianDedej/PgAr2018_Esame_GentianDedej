@@ -94,12 +94,15 @@ public class Storie{
 	public String toString() {
 		return STORIE_TITOLO;
 	}
+	/**
+	 * metodo creazione storia 
+	 */
 	public void creazioneStoria() {
 		
 		MyMenu menu= new MyMenu(STORIE_TITOLO, voci);
 		boolean fine = false;//serve per uscire dal menu
-		int i=0;//i corisponde al numero di paragrafi per storia creati
-		boolean fine_par=false;
+		int i=0;//i corisponde al numero di paragrafi della storia creata
+		boolean fine_par=false;//true esci cerazione pargrafi
 		
 		do 
 		{
@@ -120,6 +123,7 @@ public class Storie{
 						fine_par=true;
 					}
 					}while(!fine_par);
+					break;
 
 				default:
 					System.out.println("Operazione non riconosciuta.");

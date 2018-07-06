@@ -12,7 +12,7 @@ public class GiocoTestualeMain {
 	public final static String ELABORAZIONE="Elaborazione del file in corso.....";
 	public final static String ARRIVEDERCI="Programma terminato\nArrivederci!";
 	public final static String MENU_TITOLO="MENU GIOCO TESTUALE";
-	public final static String MSG_RICER_STORIE="SCRIVI IL NOME DELLA CITTA' DA TROVARE";
+	public final static String MSG_RICER_STORIE="SCRIVI IL NOME DELLA CITTA' DA TROVARE:\t";
 	static String[]voci= 
 	{
 		"VISUALIZZA STORIE ED ESEGUI",
@@ -26,9 +26,7 @@ public class GiocoTestualeMain {
 			 * inizzializzazione degli oggetti utilizzati
 			 */
 			Read read=new Read();
-			Storie storie=new Storie(); 
-			//boolean uscita=true;
-			//String nomeFile=null;
+			Storie storie=new Storie();
 			 
 			read.readFile("C:\\Users\\Gentian\\Desktop\\Esame\\PgAr2018_Esame_GentianDedej\\PgAr2018_Esame_FileXML\\PgAr2018_Story_2.1.xml",storie);
 		
@@ -46,6 +44,10 @@ public class GiocoTestualeMain {
 				switch ( voceSelezionata ) 
 				{
 				case 1:
+					/**
+					 * il metodo visualizzaStorie() crea un menu dove vengono visualizzate le storie;
+					 * Una volta visuallizato il menu e posibile avviare una storia;
+					 */
 					storie.visualizzaStorie(storie.listaStorie);
 					break;
 				case 2:
@@ -56,14 +58,14 @@ public class GiocoTestualeMain {
 					else
 						st.eseguiStoria();
 					break;
+				case 3:
+					storie.ordinaNum();
+					break;
 				case 0:
 					fine=true;
 					break;
 				}
 			}while(!fine);
-			//long endTime   = System.currentTimeMillis();
-			//System.out.println("Tempo di esecuzione del programma: "+(double)(endTime - startTime)/1000+" secondi");
-			   }
-			 //}while (uscita);
+		}
 				
 }

@@ -1,0 +1,10 @@
+la repository contiene:
+- nucleo;
+- modulo 1;
+- modulo 2;
+- modulo 3;
+- UML resto;
+
+E' presente un errore nella riga 92 in READ.java;
+non riesco a trovare il modo di leggere il "linkto" dal file xlm;
+questo comporta la mancata esecuzione del codice, però ho tentato di implementare comunque il resto del codice

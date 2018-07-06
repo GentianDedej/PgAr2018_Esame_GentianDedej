@@ -33,7 +33,11 @@ public class Paragrafo {
 		this.tipo=tipo;
 		listaOpzioni=new ArrayList<Opzione>();
 	}
-	
+	public Paragrafo(int id) {
+		this.ID=id;
+		this.tipo="basic";
+		listaOpzioni=new ArrayList<Opzione>();
+	}
 	public Paragrafo() {
 		// TODO Auto-generated constructor stub
 		this.tipo="basic";
@@ -64,6 +68,11 @@ public class Paragrafo {
 	public void setNumeroOpzioni(int numeroOpzioni) {
 		this.numeroOpzioni = numeroOpzioni;
 	}
+	/**
+	 * 
+	 * @return il paragrafo dopo la scelta del opzione
+	 */
+	
 	public Paragrafo scegliOpzione() {
 		
 		MenuVisualizza menu =new MenuVisualizza(descrizione, listaOpzioni,0);
@@ -80,9 +89,9 @@ public class Paragrafo {
 						System.out.println("Operazione non riconosciuta.");
 						 break;
 					}
-					else
-						return listaOpzioni.get(voceSelezionata).collegamento;
-				case 0:
+					else 
+						 return listaOpzioni.get(voceSelezionata-1).collegamento;
+			case 0:
 					fine=true;
 					break;
 			
@@ -96,7 +105,9 @@ public class Paragrafo {
 	public String toString() {
 		return descrizione;
 	}
-
+	/**
+	 * metodo che aggiunge opzioni, esso viene ripetutto finchè fine==true;
+	 */
 	public void aggiungiOpzione() {
 		MyMenu menu =new MyMenu(TITOLO, voci);
 		boolean fine = false;//serve per uscire dal menu

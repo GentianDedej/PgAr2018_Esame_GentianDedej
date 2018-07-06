@@ -51,7 +51,9 @@ public class Read {
 				/**
 				 * lettura degli attributi del story
 				 */
-				
+				if(first==false) {
+					numSto++;
+				}
 				String titolo=xmlr.getAttributeValue(0);
 				int numeroParagrafi=Integer.parseInt(xmlr.getAttributeValue(1));
 				
@@ -84,9 +86,10 @@ public class Read {
 					/**
 					 * lettura opzioni
 					 */
+					
 					String s=xmlr.getElementText().trim();
 					//System.out.println(xmlr.getAttributeValue(0));
-					//int o=Integer.parseInt(xmlr.getAttributeValue(0));
+					//int linkto=Integer.parseInt(xmlr.getAttributeValue(0)); <--- non so il perchè non reisco a recuperare il valore del linkto del paragrafo collegato
 					
 					
 					listaStorie.listaStorie.get(numSto).listaParagrafi.get(numPar).listaOpzioni.add(new Opzione(s));
